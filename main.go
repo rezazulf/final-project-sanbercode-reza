@@ -28,8 +28,8 @@ func main() {
 		os.Getenv("PGHOST"),
 		os.Getenv("PGPORT"),
 		os.Getenv("PGUSER"),
-		os.Getenv("PGDATABASE"),
-		os.Getenv("DB_NAME"))
+		os.Getenv("PGPASSWORD"),
+		os.Getenv("PGDATABASE"))
 
 	DB, err = sql.Open("postgres", psqlInfo)
 	err := DB.Ping()
