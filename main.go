@@ -25,10 +25,10 @@ func main() {
 	}
 	// DB Test
 	psqlInfo := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=disable",
-		os.Getenv("DB_HOST"),
-		os.Getenv("DB_PORT"),
-		os.Getenv("DB_USER"),
-		os.Getenv("DB_PASSWORD"),
+		os.Getenv("PGHOST"),
+		os.Getenv("PGPORT"),
+		os.Getenv("PGUSER"),
+		os.Getenv("PGDATABASE"),
 		os.Getenv("DB_NAME"))
 
 	DB, err = sql.Open("postgres", psqlInfo)
@@ -43,5 +43,5 @@ func main() {
 
 	defer DB.Close()
 
-	routers.StartServer().Run("localhost:8080")
+	routers.StartServer().Run(":" + os.Getenv("PORT"))
 }
