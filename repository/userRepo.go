@@ -73,7 +73,7 @@ func GetUser(db *sql.DB) (results []models.Users, err error) {
 }
 
 func EditBalance(db *sql.DB, users *models.Users) (err error) {
-	query := `UPDATE users SET balance = $1, updated_at = $2 WHERE id = $3`
+	query := `UPDATE users SET balance = balance + $1, updated_at = $2 WHERE id = $3`
 	if users.Balance <= 0 {
 		panic(err)
 	}
