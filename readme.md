@@ -14,19 +14,27 @@ Download terlebih dahulu library-library yang akan digunakan:
     go get -u "github.com/gobuffalo/packr/v2"
     go get -u "github.com/joho/godotenv"
 
+<h1> Maaf, kurang lengkap. Saya kurang tidur. </h1>
+<h2> Untuk view body dan param url lebih lengkap dapat dilihat di : <a href="https://www.postman.com/rezazulf/workspace/fp-sanbercode/collection/12473257-c3833057-9583-4014-8f11-d47123030f6d?ctx=documentation">disini</a></h2>
+<h2> link diatas workspace untuk postman. lengkap dengan body json</h2>
+
+### username|pass : admin|admin => role admin, user|user => role customer
+
+
 ### APIs
 ### REGISTRATION
 ```
   POST /register
 ```
+#### Parameter Body
+```json
+{
+    "username":"user1",
+    "password":"user1"
+}
+```
 
-##### Parameter
-| Parameter    | Tipe Data | Deskripsi                                                                                |
-|--------------|-----------|------------------------------------------------------------------------------------------|
-| username     | string    | register username untuk user/customer                                                    | 
-| password     | string    | register password untuk user/customer                                                    |
-
-##### Contoh Request
+##### Parameter Body
 ```json
 {
     "username":"user",
@@ -43,12 +51,7 @@ Download terlebih dahulu library-library yang akan digunakan:
 ```
   POST /login
 ```
-##### Parameter
-| Parameter | Tipe Data | Deskripsi                                   |
-|-----------|-----------|---------------------------------------------|
-| username  | string    | menggunakan username yang telah didaftarkan | 
-| password  | string    | menggunakan password yang telah didaftarkan |
-##### Contoh Request
+##### Parameter Body
 ```json
 {
     "username":"admin",
@@ -80,10 +83,6 @@ none
 ```
 
 ### CATEGORIES
-##### Parameter
-| Parameter      | Tipe Data  | Deskripsi                                   |
-|----------------|------------|---------------------------------------------|
-| name           | string     | untuk menginput nama kategori               | 
 #### 1. Get All Categories
 ```
   GET /categories
@@ -158,11 +157,7 @@ none
 }
 ```
 
-### PRODUCT
-##### Parameter
-| Parameter     | Tipe Data | Deskripsi                                                            |
-|---------------|-----------|----------------------------------------------------------------------|
-| status        | string    | untuk input status. Antara In-Stock/Out of Stock                     |
+### Status
 
 
 #### 1. Create Status
@@ -203,17 +198,6 @@ none
 
 
 ### Product
-##### Parameter
-| Parameter     | Tipe Data   | Deskripsi                                                |
-|---------------|-------------|----------------------------------------------------------|
-| name          | string      | Nama event, contohnya: Konser Akbar All Star             |
-| description   | string      | Deskripsi event, contoh: Lokasi event                    |
-| price         | int         | Harga untuk sebuah produk                                |
-| image_url     | string      | URL untuk gambar                                         |
-| stock         | int         | stock untuk cek stock ada atau tidak                     |
-| status_id     | int         | status_id, contohnya id 1 = In-Stock                     |
-| category_id   | int         | category_id, contohnya id 1 = mouse                      |
-
 #### 1. Create Product (ADMIN AUTH)
 ```
   POST /product
@@ -236,11 +220,6 @@ none
     "result": "Sukses Menambahkan Produk"
 }
 ```
-##### Contoh Response Gagal
-```
-<h1> Waktunya gak sempet buat bikin error handling </h1>
-```
-
 #### 2. Update
 ```
   PUT /product/:id
@@ -274,21 +253,6 @@ none
   "result": "Sukses Menghapus Produk"
 }
 ```
-```
-{
-  "data": [
-    {
-      "id": 2,
-      "name": "Blackpink World Tour 2023",
-      "description": "Concert Blackpink ICE BSD",
-      "start_date": "2023-05-05T00:00:00Z",
-      "end_date": "2023-05-05T00:00:00Z",
-      "category_id": 2,
-      "category_name": "Concert"
-    }
-  ]
-}
-```
 #### 5. Get All Product
 ```
 GET /product/
@@ -312,5 +276,16 @@ GET /product/
     ]
 }
 ```
-### Beli Barang
-##### Parameter
+#### Create Status
+```
+  POST /buy/:productid/customer/:customerid
+```
+##### Contoh Request
+```json
+{
+    "username": "user",
+    "password" : "user",
+    "sum_item" : 1
+}
+```
+
