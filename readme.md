@@ -14,7 +14,7 @@ Download terlebih dahulu library-library yang akan digunakan:
     go get -u "github.com/gobuffalo/packr/v2"
     go get -u "github.com/joho/godotenv"
 
-<h1> Maaf, kurang lengkap. Saya kurang tidur. </h1>
+<h1> Maaf, kurang lengkap untuk dokumentasinya.  </h1>
 <h2> Untuk view body dan param url lebih lengkap dapat dilihat di : <a href="https://www.postman.com/rezazulf/workspace/fp-sanbercode/collection/12473257-c3833057-9583-4014-8f11-d47123030f6d?ctx=documentation">disini</a></h2>
 <h2> link diatas workspace untuk postman. lengkap dengan body json</h2>
 
