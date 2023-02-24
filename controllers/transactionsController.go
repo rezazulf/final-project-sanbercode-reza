@@ -63,12 +63,12 @@ func PostTransactions(c *gin.Context) {
 
 	if isTrue {
 		c.JSON(http.StatusOK, gin.H{
-			"message":         result,
-			"user_name":       dataCustomer.Username,
-			"item_buyed":      dataProduct.Name,
-			"number_of_items": dataCheckout.Sum_item,
-			"bill":            dataCheckout.Payment_bills,
-			"balance":         dataCustomer.Balance,
+			"message":     result,
+			"user_name":   dataCustomer.Username,
+			"item_bought": dataProduct.Name,
+			"sum_item":    dataCheckout.Sum_item,
+			"bill":        dataCheckout.Payment_bills,
+			"balance":     dataCustomer.Balance,
 		})
 	} else {
 		c.JSON(http.StatusBadRequest, gin.H{
